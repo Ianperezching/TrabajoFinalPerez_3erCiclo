@@ -385,13 +385,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1594678784}
-        m_TargetAssemblyTypeName: Combatant, Assembly-CSharp
-        m_MethodName: Attack
-        m_Mode: 2
+      - m_Target: {fileID: 666393090}
+        m_TargetAssemblyTypeName: CombatantUI, Assembly-CSharp
+        m_MethodName: Heal
+        m_Mode: 1
         m_Arguments:
-          m_ObjectArgument: {fileID: 880799304}
-          m_ObjectArgumentAssemblyTypeName: BaseCombatant, Assembly-CSharp
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -2969,13 +2969,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1594678784}
-        m_TargetAssemblyTypeName: Combatant, Assembly-CSharp
-        m_MethodName: Attack
-        m_Mode: 2
+      - m_Target: {fileID: 1387816924}
+        m_TargetAssemblyTypeName: CombatantUI, Assembly-CSharp
+        m_MethodName: SpecialAttack
+        m_Mode: 1
         m_Arguments:
-          m_ObjectArgument: {fileID: 880799304}
-          m_ObjectArgumentAssemblyTypeName: BaseCombatant, Assembly-CSharp
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -3102,13 +3102,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1594678784}
-        m_TargetAssemblyTypeName: Combatant, Assembly-CSharp
-        m_MethodName: Attack
-        m_Mode: 2
+      - m_Target: {fileID: 1650549385}
+        m_TargetAssemblyTypeName: CombatantUI, Assembly-CSharp
+        m_MethodName: SpeedBoost
+        m_Mode: 1
         m_Arguments:
-          m_ObjectArgument: {fileID: 880799304}
-          m_ObjectArgumentAssemblyTypeName: BaseCombatant, Assembly-CSharp
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
