@@ -33,7 +33,8 @@ public class Combatant : BaseCombatant
        // StartCoroutine(TiemAnimation("RecibeDaño 0", true));
         int damageTaken = Mathf.Max(damage - stats.defense, 0);
         stats.currentHealth -= damageTaken;
-
+        Debug.Log(stats.currentHealth);
+        Debug.Log(damage+ "recibe daño "+ stats.characterName);
         if (stats.currentHealth <= 0)
         {
             UpdateHealthBar();

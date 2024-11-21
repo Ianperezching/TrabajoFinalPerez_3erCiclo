@@ -15,6 +15,6 @@ MonoBehaviour:
   enemyName: Enemigo 1
   health: 100
   attack: 10
-  defense: 10
+  defense: 0
   speed: 10
-  currentHealth: 100
+  currentHealth: 50

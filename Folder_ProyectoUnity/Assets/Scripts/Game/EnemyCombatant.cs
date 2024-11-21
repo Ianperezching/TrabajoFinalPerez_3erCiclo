@@ -30,6 +30,8 @@ public class EnemyCombatant : BaseCombatant
        // StartCoroutine(TiemAnimation("RecibeDaño 0", true));
         int damageTaken = Mathf.Max(damage - stats.defense, 0);
         stats.currentHealth -= damageTaken;
+       
+        Debug.Log(damage + " recibe daño " + stats.enemyName);
         if (stats.currentHealth <= 0)
         {
             stats.currentHealth = 0;
@@ -41,6 +43,7 @@ public class EnemyCombatant : BaseCombatant
         {
             UpdateHealthBar();
         }
+        Debug.Log(stats.currentHealth);
     }//tiempo asintotico 0(1)
 
     public void Attack(BaseCombatant target)
