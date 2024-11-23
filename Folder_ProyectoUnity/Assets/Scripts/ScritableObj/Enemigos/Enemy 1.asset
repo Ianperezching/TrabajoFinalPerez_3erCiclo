@@ -18,3 +18,4 @@ MonoBehaviour:
   defense: 0
   speed: 10
   currentHealth: 50
+  scalingData: {fileID: 11400000, guid: 906637f84c61836429a63f08fde261db, type: 2}

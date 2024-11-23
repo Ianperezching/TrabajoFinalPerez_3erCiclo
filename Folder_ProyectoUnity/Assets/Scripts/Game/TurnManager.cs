@@ -9,6 +9,7 @@ public class TurnManager : MonoBehaviour
     public EnemyCombatant[] enemyCombatants;
     public CombatantUI[] combatantUIs;
     public MyPriorityQueue<BaseCombatant> priorityQueue = new MyPriorityQueue<BaseCombatant>();
+    public FloorManager floorManager;
 
     private void Start()
     {
@@ -62,28 +63,27 @@ public class TurnManager : MonoBehaviour
 
     public void EndTurn(BaseCombatant combatant)
     {
-
         if (AnyPlayerDead())
         {
             SceneManager.LoadScene("Derrota");
             return;
         }
 
-
         if (CheckVictory())
         {
-            SceneManager.LoadScene("Nivel");
+            floorManager.AdvanceToNextFloor(); 
+            return;
         }
-        else if (CheckDefeat())
+
+        if (CheckDefeat())
         {
             SceneManager.LoadScene("Derrota");
+            return;
         }
-        else
-        {
-            combatant.AddDelay(1000);
-            priorityQueue.PriorityEnqueue(combatant, combatant.GetSpeedWithDelay());
-            StartTurn();
-        }
+
+        combatant.AddDelay(1000);
+        priorityQueue.PriorityEnqueue(combatant, combatant.GetSpeedWithDelay());
+        StartTurn();
     }
 
     private bool CheckVictory()
