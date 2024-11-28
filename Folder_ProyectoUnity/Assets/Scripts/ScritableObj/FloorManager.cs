@@ -1,4 +1,4 @@
-// /Scripts/FloorManager.cs
+
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
