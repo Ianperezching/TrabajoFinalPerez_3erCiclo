@@ -20,6 +20,7 @@ public class TurnManager : MonoBehaviour
     private int currentTurnIndex = 0;              
     private bool isPlayerTurn = true;
 
+
     private void Start()
     {
 
@@ -45,21 +46,21 @@ public class TurnManager : MonoBehaviour
     {
         if (isPlayerTurn)
         {
-            // Avanzar al siguiente jugador
+            
             currentTurnIndex++;
             if (currentTurnIndex >= players.Length)
             {
                 currentTurnIndex = 0;
-                isPlayerTurn = false; // Cambiar al turno de los enemigos
+                isPlayerTurn = false; 
             }
         }
         else
         {
-            // Si es el turno enemigo, cambiar al turno de los jugadores
+           
             isPlayerTurn = true;
         }
 
-        UpdateCameraFocus(); // Cambiar la cámara cuando cambie el turno
+        UpdateCameraFocus(); 
     }
 
     private void StartTurn()
@@ -76,15 +77,15 @@ public class TurnManager : MonoBehaviour
             {
                 if (i == currentTurnIndex)
                 {
-                    playerCameras[i].Priority = 10; // Cámara del jugador activo
+                    playerCameras[i].Priority = 10; 
                 }
                 else
                 {
-                    playerCameras[i].Priority = 0; // Desactiva otras cámaras
+                    playerCameras[i].Priority = 0; 
                 }
             }
 
-            // Asegurarse de que la cámara enemiga no esté activa
+           
             if (enemyCamera != null)
             {
                 enemyCamera.Priority = 0;
@@ -92,13 +93,13 @@ public class TurnManager : MonoBehaviour
         }
         else
         {
-            // Activar la cámara de los enemigos
+        
             if (enemyCamera != null)
             {
                 enemyCamera.Priority = 10;
             }
 
-            // Desactivar las cámaras de los jugadores
+    
             for (int i = 0; i < playerCameras.Length; i++)
             {
                 playerCameras[i].Priority = 0;

@@ -42,7 +42,7 @@ public class FloorManager : MonoBehaviour
             enemy.UpdateHealthBar();
         }
 
-        Debug.Log($"Piso {currentFloor} configurado con enemigos más fuertes.");
+        Debug.Log("Piso "+ currentFloor + " configurado con enemigos más fuertes.");
     }
 
     private IEnumerator FadeOut()

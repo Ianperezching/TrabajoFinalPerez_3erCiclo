@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: Player 2
   health: 100
-  attack: 1
+  attack: 10
   defense: 2
   speed: 13
-  currentHealth: 100
+  currentHealth: 91

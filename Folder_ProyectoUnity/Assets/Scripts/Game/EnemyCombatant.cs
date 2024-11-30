@@ -1,12 +1,14 @@
 using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class EnemyCombatant : BaseCombatant
 {
     public Slider healthSlider;
     public EnemyStats stats;
     private TurnManager turnManager;
+
    // private AnimationController animationController;
 
     private void Awake()
@@ -27,24 +29,28 @@ public class EnemyCombatant : BaseCombatant
 
     public void TakeDamage(int damage)
     {
-       // StartCoroutine(TiemAnimation("RecibeDaño 0", true));
         int damageTaken = Mathf.Max(damage - stats.defense, 0);
         stats.currentHealth -= damageTaken;
-       
+
         Debug.Log(damage + " recibe daño " + stats.enemyName);
         if (stats.currentHealth <= 0)
         {
             stats.currentHealth = 0;
             UpdateHealthBar();
             Debug.Log(stats.enemyName + " has been defeated!");
-            Destroy(this.gameObject);
+
+            
+            transform.DOScale(Vector3.zero, 0.5f).SetEase(Ease.InBack).OnComplete(() =>
+            {
+                Destroy(this.gameObject); 
+            });
         }
         else
         {
             UpdateHealthBar();
         }
         Debug.Log(stats.currentHealth);
-    }//tiempo asintotico 0(1)
+    }
 
     public void Attack(BaseCombatant target)
     {
