@@ -9,11 +9,11 @@ public class EnemyCombatant : BaseCombatant
     public EnemyStats stats;
     private TurnManager turnManager;
 
-   // private AnimationController animationController;
+    private AnimationController animationController;
 
     private void Awake()
     {
-       // animationController = GetComponent<AnimationController>();
+        animationController = GetComponent<AnimationController>();
     }
 
     private void Start()
@@ -54,18 +54,18 @@ public class EnemyCombatant : BaseCombatant
 
     public void Attack(BaseCombatant target)
     {
-       // StartCoroutine(TiemAnimation("NormalAtack", true));
+        StartCoroutine(TiemAnimation("NormalAtack", true));
         Combatant combatant = (Combatant)target;
         combatant.TakeDamage(stats.attack);
     }
     //tiempo asintotico 0(1)
 
-    //private IEnumerator TiemAnimation(string Name, bool State)
-    //{
-    //   // animationController.PlayAnimacion(Name, State);
-    //    yield return new WaitForSeconds(2);
-    //   // animationController.PlayAnimacion(Name, false);
-    //}
+    private IEnumerator TiemAnimation(string Name, bool State)
+    {
+        animationController.PlayAnimacion(Name, State);
+      yield return new WaitForSeconds(2);
+      animationController.PlayAnimacion(Name, false);
+    }
 
     public void UpdateHealthBar()
     {
@@ -87,7 +87,7 @@ public class EnemyCombatant : BaseCombatant
 
     public override void StartTurn(TurnManager turnManager)
     {
-        //animationController.PlayAnimacion("Idle", true);
+        animationController.PlayAnimacion("Idle", true);
         turnManager.ExecuteEnemyTurn(this);
     }
 }
