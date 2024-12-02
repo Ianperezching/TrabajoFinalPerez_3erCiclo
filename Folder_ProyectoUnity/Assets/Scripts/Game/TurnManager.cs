@@ -11,6 +11,7 @@ public class TurnManager : MonoBehaviour
     public CombatantUI[] combatantUIs;
     public MyPriorityQueue<BaseCombatant> priorityQueue = new MyPriorityQueue<BaseCombatant>();
     public FloorManager floorManager;
+    public string floor;
 
     public CinemachineVirtualCamera[] playerCameras;
     public CinemachineVirtualCamera enemyCamera;    
@@ -144,7 +145,8 @@ public class TurnManager : MonoBehaviour
 
         if (CheckVictory())
         {
-            floorManager.AdvanceToNextFloor(); 
+            floorManager.AdvanceToNextFloor();
+            SceneManager.LoadScene(floor);
             return;
         }
 
