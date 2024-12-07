@@ -9,6 +9,39 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu.unity
     guid: 99c9720ab356a0642a771bea13969a05
   - enabled: 1
-    path: Assets/Scenes/Piso 0.unity
-    guid: a4fc5f7724ef0d94bb45df2e9a0cdaa6
+    path: Assets/Scenes/Pisos/Piso 1.unity
+    guid: cb787a1e462d7904799ffac7fe447f34
+  - enabled: 1
+    path: Assets/Scenes/Pisos/Piso 2.unity
+    guid: 73c2e4374df94d74e8a281540aa671c9
+  - enabled: 1
+    path: Assets/Scenes/Pisos/Piso 3.unity
+    guid: a307dbf36792ee14d966af271a16ef8a
+  - enabled: 1
+    path: Assets/Scenes/Pisos/Piso 4.unity
+    guid: ce8a59448f7854848b1fbb9d6ebe0d0e
+  - enabled: 1
+    path: Assets/Scenes/Pisos/Piso 5.unity
+    guid: 88a14ed3fe18a0f4d94d8cce446a40b0
+  - enabled: 1
+    path: Assets/Scenes/Pisos/Piso 6.unity
+    guid: f84c5260cfe58654c88cc7a2d9c1443a
+  - enabled: 1
+    path: Assets/Scenes/Pisos/Piso 7.unity
+    guid: 4cac43ef6ca2af24583f7eaa001c0b22
+  - enabled: 1
+    path: Assets/Scenes/Pisos/Piso 8.unity
+    guid: 65e3f38662f040240ac2675da20b3bb5
+  - enabled: 1
+    path: Assets/Scenes/Pisos/Piso 9.unity
+    guid: 20e891570d3635a478b26bee1e4c07de
+  - enabled: 1
+    path: Assets/Scenes/Pisos/Piso 10.unity
+    guid: 446e4aee46d26854f86be497e18354c8
+  - enabled: 1
+    path: Assets/Scenes/Victoria.unity
+    guid: 533970d31f6f52c4b886884dc86bbf67
+  - enabled: 1
+    path: Assets/Scenes/Derrota.unity
+    guid: bf4ba5ccb765c8a4486d5fe0b32ef75a
   m_configObjects: {}

@@ -31,7 +31,7 @@ public class MenuManager : MonoBehaviour
     }
     public void Play()
     {
-        SceneManager.LoadScene("Juego");
+        SceneManager.LoadScene("Piso 1");
     }
     public void Exit()
     {

@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
     
-  class DoubleCircularLinkedList<T>
+  class ListaCircularDoble<T>
   {
       class Node
       {
@@ -174,7 +174,7 @@ using UnityEngine;
       {
           if (Head == null)
           {
-              throw new NullReferenceException("No se puede pipipi");
+              throw new NullReferenceException("Nop");
           }
           if (Count == 1)
           {
@@ -193,7 +193,7 @@ using UnityEngine;
       {
           if (position < 0 || position >= Count)
           {
-              throw new NullReferenceException("No se puede hacer eso");
+              throw new NullReferenceException("No");
           }
           else if (position == 0)
           {
@@ -234,7 +234,7 @@ using UnityEngine;
       {
           if (Head == null)
           {
-              Console.WriteLine("Primero llena tu lista papeto");
+              Console.WriteLine("nop");
               return;
           }
           Node tmp = Head;

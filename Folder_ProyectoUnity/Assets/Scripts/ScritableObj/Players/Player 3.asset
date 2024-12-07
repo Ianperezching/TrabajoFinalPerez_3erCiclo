@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Player 3
   m_EditorClassIdentifier: 
   characterName: Player 3
-  health: 100
-  attack: 10
+  health: 50
+  attack: 5
   defense: 6
   speed: 10
-  currentHealth: 95
+  currentHealth: 5

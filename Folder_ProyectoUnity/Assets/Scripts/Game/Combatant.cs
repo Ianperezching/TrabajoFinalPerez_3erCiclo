@@ -107,5 +107,5 @@ public class Combatant : BaseCombatant
     {
         animationController.PlayAnimacion("Idle", true);
         turnManager.ShowPlayerOptions(this);
-    }//tiempo asintotico 0(log n)
+    }
 }

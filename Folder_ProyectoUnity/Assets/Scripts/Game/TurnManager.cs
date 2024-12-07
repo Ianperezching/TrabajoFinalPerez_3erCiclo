@@ -137,6 +137,7 @@ public class TurnManager : MonoBehaviour
 
     public void EndTurn(BaseCombatant combatant)
     {
+
         if (AnyPlayerDead())
         {
             SceneManager.LoadScene("Derrota");
@@ -177,14 +178,13 @@ public class TurnManager : MonoBehaviour
     {
         for (int i = 0; i < playerCombatants.Length; i++)
         {
-            if (playerCombatants[i].stats.currentHealth > 0)
+            if (playerCombatants[i].stats.currentHealth >=1)
             {
                 return false;
             }
         }
         return true;
     }
-
     private bool AnyPlayerDead()
     {
         for (int i = 0; i < playerCombatants.Length; i++)

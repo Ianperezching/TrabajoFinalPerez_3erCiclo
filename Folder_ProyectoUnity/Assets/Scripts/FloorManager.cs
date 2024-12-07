@@ -6,9 +6,10 @@ using UnityEngine.UI;
 public class FloorManager : MonoBehaviour
 {
     public TurnManager turnManager;
-    public Image fadeImage; 
+    public Image fadeImage;
     public int currentFloor = 1;
     public EnemyStats[] enemyStatsTemplates;
+    //public ListaCircularDoble<Button>;
 
     public float fadeDuration = 1.0f; 
 
