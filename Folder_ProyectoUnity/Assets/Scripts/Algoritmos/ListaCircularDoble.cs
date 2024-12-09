@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
     
-  class ListaCircularDoble<T>
+ public class ListaCircularDoble<T>
   {
       class Node
       {

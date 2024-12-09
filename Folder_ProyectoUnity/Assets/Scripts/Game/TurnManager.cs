@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Cinemachine;
+using UnityEngine.Events;
 
 public class TurnManager : MonoBehaviour
 {
@@ -14,17 +15,18 @@ public class TurnManager : MonoBehaviour
     public string floor;
 
     public CinemachineVirtualCamera[] playerCameras;
-    public CinemachineVirtualCamera enemyCamera;    
-    public GameObject[] players;                    
+    public CinemachineVirtualCamera enemyCamera;
+    public GameObject[] players;
     public GameObject[] enemies;
 
-    private int currentTurnIndex = 0;              
-    private bool isPlayerTurn = true;
+    public UnityEvent OnVictory;
+    public UnityEvent OnDefeat;
 
+    private int currentTurnIndex = 0;
+    private bool isPlayerTurn = true;
 
     private void Start()
     {
-
         UpdateCameraFocus();
 
         for (int i = 0; i < playerCombatants.Length; i++)
@@ -43,25 +45,24 @@ public class TurnManager : MonoBehaviour
 
         StartTurn();
     }
+
     public void NextTurn()
     {
         if (isPlayerTurn)
         {
-            
             currentTurnIndex++;
             if (currentTurnIndex >= players.Length)
             {
                 currentTurnIndex = 0;
-                isPlayerTurn = false; 
+                isPlayerTurn = false;
             }
         }
         else
         {
-           
             isPlayerTurn = true;
         }
 
-        UpdateCameraFocus(); 
+        UpdateCameraFocus();
     }
 
     private void StartTurn()
@@ -70,6 +71,7 @@ public class TurnManager : MonoBehaviour
         Debug.Log("It's " + currentCombatant.GetName() + "'s turn!");
         currentCombatant.StartTurn(this);
     }
+
     private void UpdateCameraFocus()
     {
         if (isPlayerTurn)
@@ -78,15 +80,14 @@ public class TurnManager : MonoBehaviour
             {
                 if (i == currentTurnIndex)
                 {
-                    playerCameras[i].Priority = 10; 
+                    playerCameras[i].Priority = 10;
                 }
                 else
                 {
-                    playerCameras[i].Priority = 0; 
+                    playerCameras[i].Priority = 0;
                 }
             }
 
-           
             if (enemyCamera != null)
             {
                 enemyCamera.Priority = 0;
@@ -94,19 +95,18 @@ public class TurnManager : MonoBehaviour
         }
         else
         {
-        
             if (enemyCamera != null)
             {
                 enemyCamera.Priority = 10;
             }
 
-    
             for (int i = 0; i < playerCameras.Length; i++)
             {
                 playerCameras[i].Priority = 0;
             }
         }
     }
+
     public void ShowPlayerOptions(Combatant player)
     {
         HideAllUI();
@@ -121,7 +121,6 @@ public class TurnManager : MonoBehaviour
                 }
                 break;
             }
-            
         }
     }
 
@@ -132,27 +131,27 @@ public class TurnManager : MonoBehaviour
         enemy.Attack(target);
         NextTurn();
         EndTurn(enemy);
-        
     }
 
     public void EndTurn(BaseCombatant combatant)
     {
-
         if (AnyPlayerDead())
         {
+            OnDefeat?.Invoke(); 
             SceneManager.LoadScene("Derrota");
             return;
         }
 
         if (CheckVictory())
         {
-            floorManager.AdvanceToNextFloor();
-            SceneManager.LoadScene(floor);
+            OnVictory?.Invoke(); 
+            StartCoroutine(HandleVictory());
             return;
         }
 
         if (CheckDefeat())
         {
+            OnDefeat?.Invoke(); 
             SceneManager.LoadScene("Derrota");
             return;
         }
@@ -160,6 +159,14 @@ public class TurnManager : MonoBehaviour
         combatant.AddDelay(1000);
         priorityQueue.PriorityEnqueue(combatant, combatant.GetSpeedWithDelay());
         StartTurn();
+    }
+
+    private IEnumerator HandleVictory()
+    {
+        yield return new WaitForSeconds(1.5f);
+
+        floorManager.AdvanceToNextFloor();
+        SceneManager.LoadScene(floor);
     }
 
     private bool CheckVictory()
@@ -178,13 +185,14 @@ public class TurnManager : MonoBehaviour
     {
         for (int i = 0; i < playerCombatants.Length; i++)
         {
-            if (playerCombatants[i].stats.currentHealth >=1)
+            if (playerCombatants[i].stats.currentHealth > 0)
             {
                 return false;
             }
         }
         return true;
     }
+
     private bool AnyPlayerDead()
     {
         for (int i = 0; i < playerCombatants.Length; i++)

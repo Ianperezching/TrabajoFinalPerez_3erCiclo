@@ -9,4 +9,12 @@ public class CharacterStats : ScriptableObject
     public int defense;
     public int speed;
     public int currentHealth;
+    public void ApplyUpgrade(CardUpgrade upgrade)
+    {
+        health += upgrade.HealthBoost;
+        attack += upgrade.AttackBoost;
+        defense += upgrade.DefenseBoost;
+
+        Debug.Log($"Mejora aplicada: Salud +{upgrade.HealthBoost}, Ataque +{upgrade.AttackBoost}, Defensa +{upgrade.DefenseBoost}");
+    }
 }

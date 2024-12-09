@@ -16,5 +16,5 @@ MonoBehaviour:
   health: 70
   attack: 15
   defense: 6
-  speed: 7
-  currentHealth: 0
+  speed: 10
+  currentHealth: 70

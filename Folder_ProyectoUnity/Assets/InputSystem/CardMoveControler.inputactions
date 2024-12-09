@@ -1,0 +1,46 @@
+{
+    "name": "CardMoveControler",
+    "maps": [
+        {
+            "name": "CardMove",
+            "id": "915d527d-fb6e-4dfe-b903-80aa81490add",
+            "actions": [
+                {
+                    "name": "Setings",
+                    "type": "Button",
+                    "id": "e46757f2-51f7-47dc-9073-c8096b7e62c2",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "96f5c7bf-dbfb-48b8-92c4-e50e2a2883e2",
+                    "path": "<Keyboard>/p",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Setings",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": [
+        {
+            "name": "CardMove",
+            "bindingGroup": "CardMove",
+            "devices": [
+                {
+                    "devicePath": "<Keyboard>",
+                    "isOptional": false,
+                    "isOR": false
+                }
+            ]
+        }
+    ]
+}

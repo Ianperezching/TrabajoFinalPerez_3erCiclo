@@ -9,9 +9,8 @@ public class FloorManager : MonoBehaviour
     public Image fadeImage;
     public int currentFloor = 1;
     public EnemyStats[] enemyStatsTemplates;
-    //public ListaCircularDoble<Button>;
 
-    public float fadeDuration = 1.0f; 
+    public float fadeDuration = 1.0f;
 
     private void Start()
     {
@@ -38,13 +37,13 @@ public class FloorManager : MonoBehaviour
             EnemyCombatant enemy = turnManager.enemyCombatants[i];
             int templateIndex = Random.Range(0, enemyStatsTemplates.Length);
             enemy.stats = Instantiate(enemyStatsTemplates[templateIndex]);
-            enemy.stats.ScaleStats(currentFloor); 
+            enemy.stats.ScaleStats(currentFloor);
             enemy.stats.currentHealth = enemy.stats.health;
             enemy.UpdateHealthBar();
         }
 
-        Debug.Log("Piso "+ currentFloor + " configurado con enemigos más fuertes.");
-    }
+        Debug.Log("Piso " + currentFloor + " configurado con enemigos más fuertes.");
+    }//tiempo Asintotico o(n)
 
     private IEnumerator FadeOut()
     {
@@ -55,7 +54,7 @@ public class FloorManager : MonoBehaviour
             fadeImage.color = new Color(color.r, color.g, color.b, alpha);
             yield return null;
         }
-        fadeImage.color = new Color(color.r, color.g, color.b, 1); 
+        fadeImage.color = new Color(color.r, color.g, color.b, 1);
     }
 
     private IEnumerator FadeIn()
@@ -67,7 +66,7 @@ public class FloorManager : MonoBehaviour
             fadeImage.color = new Color(color.r, color.g, color.b, alpha);
             yield return null;
         }
-        fadeImage.color = new Color(color.r, color.g, color.b, 0); 
+        fadeImage.color = new Color(color.r, color.g, color.b, 0);
     }
 }
 
